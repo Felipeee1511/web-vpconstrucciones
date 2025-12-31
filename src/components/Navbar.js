@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="shrink-0">
             <button
               onClick={() => scrollToSection("inicio")}
-              className={`transition-all duration-300 px-5 py-3 rounded-xl ${
+              className={`transition-all duration-300 px-6 py-4 rounded-xl ${
                 isScrolled ? "hover:bg-blue-50" : "hover:bg-white/10"
               }`}
               aria-label="Ir a inicio"
@@ -67,7 +67,7 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap px-5 py-3 rounded-xl ${
+                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap px-6 py-3.5 rounded-xl ${
                   isScrolled
                     ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
                     : "text-white hover:bg-white/20"
@@ -91,11 +91,11 @@ export default function Navbar() {
               aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               <svg
-                className="h-6 w-6"
+                className="h-7 w-7"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
@@ -125,7 +125,7 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left px-5 py-4 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
+                className="block w-full text-left px-6 py-5 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
                 aria-label={`Ir a ${item}`}
               >
                 {item}

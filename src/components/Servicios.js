@@ -140,7 +140,7 @@ export default function Servicios() {
                   .getElementById("contacto")
                   .scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
               aria-label="Contactar para servicio personalizado"
             >
               Contáctanos Ahora

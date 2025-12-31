@@ -51,7 +51,7 @@ export default function Hero() {
                     .getElementById("servicios")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-blue-600 hover:bg-blue-700 text-white px-14 py-5 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
                 aria-label="Ver nuestros servicios"
               >
                 Nuestros Servicios
@@ -62,7 +62,7 @@ export default function Hero() {
                     .getElementById("contacto")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white px-14 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white px-16 py-6 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
                 aria-label="Contactar con nosotros"
               >
                 Contáctanos
@@ -75,16 +75,16 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0 p-4"
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0 p-5"
         aria-label="Scroll hacia abajo"
         type="button"
       >
         <svg
-          className="w-8 h-8 text-white drop-shadow-lg"
+          className="w-10 h-10 text-white drop-shadow-lg"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="2.5"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >

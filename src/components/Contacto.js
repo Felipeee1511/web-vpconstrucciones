@@ -314,7 +314,7 @@ export default function Contacto() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 px-8 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
               >
                 Enviar Mensaje
               </button>
