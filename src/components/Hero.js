@@ -26,43 +26,48 @@ export default function Hero() {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: "url(/hero/Imagen.PNG)",
+          backgroundImage: "url(/assets/Imagen.PNG)",
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/50 to-black/60"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center w-full h-full px-4">
-        <div className="text-center text-white max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            VP Construcciones
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Especialistas en Limpieza Industrial y Mantenimiento
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() =>
-                document
-                  .getElementById("servicios")
-                  .scrollIntoView({ behavior: "smooth" })
-              }
-              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full font-semibold text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
-            >
-              Nuestros Servicios
-            </button>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("contacto")
-                  .scrollIntoView({ behavior: "smooth" })
-              }
-              className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white px-10 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:shadow-2xl shadow-lg"
-            >
-              Contáctanos
-            </button>
+        <div className="text-center text-white max-w-5xl mx-auto">
+          {/* Container con fondo sutil */}
+          <div className="bg-black/20 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in leading-tight">
+              VP Construcciones
+            </h1>
+            <p className="text-xl md:text-3xl mb-10 text-gray-100 font-light leading-relaxed">
+              Especialistas en Limpieza Industrial y Mantenimiento
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("servicios")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-blue-600 hover:bg-blue-700 text-white px-14 py-5 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
+                aria-label="Ver nuestros servicios"
+              >
+                Nuestros Servicios
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contacto")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white px-14 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
+                aria-label="Contactar con nosotros"
+              >
+                Contáctanos
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -70,7 +75,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0 p-2"
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0 p-4"
         aria-label="Scroll hacia abajo"
         type="button"
       >

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,25 +26,36 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 flex justify-center ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-white shadow-lg backdrop-blur-sm"
+          : "bg-black/20 backdrop-blur-md"
       }`}
     >
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20 ml-8 mr-8">
+          {/* Logo con contenedor visual */}
           <div className="shrink-0">
             <button
               onClick={() => scrollToSection("inicio")}
-              className={`text-xl sm:text-2xl font-bold transition-colors ${
-                isScrolled ? "text-blue-600" : "text-white"
+              className={`transition-all duration-300 px-5 py-3 rounded-xl ${
+                isScrolled ? "hover:bg-blue-50" : "hover:bg-white/10"
               }`}
+              aria-label="Ir a inicio"
             >
-              VP Construcciones
+              <Image
+                src="/assets/logovp.png"
+                alt="VP Construcciones Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </button>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          {/* Desktop Menu con mejor diseño */}
+          <div className="hidden md:flex items-center gap-2 lg:gap-3">
             {[
               "Inicio",
               "Nosotros",
@@ -55,20 +67,28 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`transition-colors hover:text-blue-600 font-medium text-sm lg:text-base whitespace-nowrap ${
-                  isScrolled ? "text-gray-700" : "text-white"
+                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap px-5 py-3 rounded-xl ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                    : "text-white hover:bg-white/20"
                 }`}
+                aria-label={`Ir a ${item}`}
               >
                 {item}
               </button>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button con mejor diseño */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 ${isScrolled ? "text-gray-700" : "text-white"}`}
+              className={`p-4 rounded-xl transition-all duration-300 ${
+                isScrolled
+                  ? "text-gray-700 hover:bg-gray-100"
+                  : "text-white hover:bg-white/20"
+              }`}
+              aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               <svg
                 className="h-6 w-6"
@@ -90,10 +110,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu mejorado */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden bg-white shadow-2xl border-t border-gray-200 animate-fade-in">
+          <div className="px-4 pt-3 pb-4 space-y-2 max-w-7xl mx-auto">
             {[
               "Inicio",
               "Nosotros",
@@ -105,7 +125,8 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md font-medium"
+                className="block w-full text-left px-5 py-4 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
+                aria-label={`Ir a ${item}`}
               >
                 {item}
               </button>

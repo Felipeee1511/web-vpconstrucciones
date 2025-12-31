@@ -71,3 +71,94 @@ section::after {
 .animate-fade-in {
   animation: fade-in 1s ease-out;
 }
+
+/* Animación suave para transiciones */
+* {
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mejora de accesibilidad - focus visible */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+
+/* Mejora de contraste en textos */
+::selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Smooth scroll con offset para navbar fijo */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Animación de entrada para elementos */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mejora de legibilidad */
+p,
+li,
+span {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sombras suaves para contenedores */
+.shadow-custom {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-custom-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effects mejorados */
+button,
+a {
+  cursor: pointer;
+}
+
+/* Loading states */
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}

@@ -6,6 +6,7 @@ import Calidad from "@/components/Calidad";
 import Seguridad from "@/components/Seguridad";
 import Contacto from "@/components/Contacto";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Seguridad />
       <Contacto />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
