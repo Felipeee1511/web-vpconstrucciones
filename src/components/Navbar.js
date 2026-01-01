@@ -7,11 +7,39 @@ import Image from "next/image";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Detectar sección activa
+      const sections = [
+        "inicio",
+        "nosotros",
+        "servicios",
+        "calidad",
+        "seguridad",
+        "contacto",
+      ];
+      const scrollPosition = window.scrollY + 100; // Offset para activación temprana
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
+
+    handleScroll(); // Llamar al cargar
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -64,21 +92,31 @@ export default function Navbar() {
               "Calidad",
               "Seguridad",
               "Contacto",
-            ].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                style={{ padding: "0.875rem 1.5rem" }}
-                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap rounded-xl ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                    : "text-white hover:bg-white/20"
-                }`}
-                aria-label={`Ir a ${item}`}
-              >
-                {item}
-              </button>
-            ))}
+            ].map((item) => {
+              const itemId = item.toLowerCase();
+              const isActive = activeSection === itemId;
+
+              return (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(itemId)}
+                  style={{ padding: "0.875rem 1.5rem" }}
+                  className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap rounded-xl ${
+                    isActive
+                      ? isScrolled
+                        ? "text-blue-600 bg-blue-50 font-semibold"
+                        : "text-white bg-white/30 font-semibold"
+                      : isScrolled
+                      ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                      : "text-white hover:bg-white/20"
+                  }`}
+                  aria-label={`Ir a ${item}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item}
+                </button>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button con mejor diseño */}
@@ -124,17 +162,27 @@ export default function Navbar() {
               "Calidad",
               "Seguridad",
               "Contacto",
-            ].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                style={{ padding: "1.25rem 1.5rem" }}
-                className="block w-full text-left text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
-                aria-label={`Ir a ${item}`}
-              >
-                {item}
-              </button>
-            ))}
+            ].map((item) => {
+              const itemId = item.toLowerCase();
+              const isActive = activeSection === itemId;
+
+              return (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(itemId)}
+                  style={{ padding: "1.25rem 1.5rem" }}
+                  className={`block w-full text-left text-base font-medium rounded-xl transition-all duration-200 ${
+                    isActive
+                      ? "text-blue-600 bg-blue-50 font-semibold"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                  }`}
+                  aria-label={`Ir a ${item}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
