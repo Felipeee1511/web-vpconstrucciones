@@ -32,13 +32,14 @@ export default function Navbar() {
           : "bg-black/20 backdrop-blur-md"
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 ml-8 mr-8">
+      <div className="w-full mx-auto px-8 sm:px-12 lg:px-16 xl:px-24">
+        <div className="flex justify-between items-center h-20">
           {/* Logo con contenedor visual */}
           <div className="shrink-0">
             <button
               onClick={() => scrollToSection("inicio")}
-              className={`transition-all duration-300 px-6 py-4 rounded-xl ${
+              style={{ padding: "1rem 1.5rem" }}
+              className={`transition-all duration-300 rounded-xl ${
                 isScrolled ? "hover:bg-blue-50" : "hover:bg-white/10"
               }`}
               aria-label="Ir a inicio"
@@ -67,7 +68,8 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap px-6 py-3.5 rounded-xl ${
+                style={{ padding: "0.875rem 1.5rem" }}
+                className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap rounded-xl ${
                   isScrolled
                     ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
                     : "text-white hover:bg-white/20"
@@ -83,7 +85,8 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-4 rounded-xl transition-all duration-300 ${
+              style={{ padding: "1rem" }}
+              className={`rounded-xl transition-all duration-300 ${
                 isScrolled
                   ? "text-gray-700 hover:bg-gray-100"
                   : "text-white hover:bg-white/20"
@@ -125,7 +128,8 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left px-6 py-5 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
+                style={{ padding: "1.25rem 1.5rem" }}
+                className="block w-full text-left text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200"
                 aria-label={`Ir a ${item}`}
               >
                 {item}

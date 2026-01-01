@@ -42,7 +42,10 @@ export default function Contacto() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="inline-block px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold mb-4">
+          <span
+            style={{ padding: "0.75rem 1.5rem" }}
+            className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4"
+          >
             Conversemos
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -314,7 +317,8 @@ export default function Contacto() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 px-8 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
+                style={{ padding: "1.5rem 2rem" }}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
               >
                 Enviar Mensaje
               </button>

@@ -85,7 +85,10 @@ export default function Nosotros() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
               <div>
-                <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+                <span
+                  style={{ padding: "0.75rem 1.5rem" }}
+                  className="inline-block bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4"
+                >
                   Quiénes Somos
                 </span>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">

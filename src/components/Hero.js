@@ -51,7 +51,8 @@ export default function Hero() {
                     .getElementById("servicios")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
+                style={{ padding: "1.5rem 4rem" }}
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
                 aria-label="Ver nuestros servicios"
               >
                 Nuestros Servicios
@@ -62,7 +63,8 @@ export default function Hero() {
                     .getElementById("contacto")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white px-16 py-6 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
+                style={{ padding: "1.5rem 4rem" }}
+                className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
                 aria-label="Contactar con nosotros"
               >
                 Contáctanos
@@ -75,7 +77,8 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0 p-5"
+        style={{ padding: "1.25rem" }}
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0"
         aria-label="Scroll hacia abajo"
         type="button"
       >

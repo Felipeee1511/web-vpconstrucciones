@@ -81,7 +81,10 @@ export default function Servicios() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header con contenedor visual */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="inline-block px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold mb-4">
+          <span
+            style={{ padding: "0.75rem 1.5rem" }}
+            className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4"
+          >
             Lo que ofrecemos
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -129,9 +132,9 @@ export default function Servicios() {
         </div>
 
         {/* Call to action */}
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-            <p className="text-lg text-gray-700 mb-4">
+        <div className="mt-24 lg:mt-32">
+          <div className="w-full bg-white rounded-2xl shadow-lg p-10 lg:p-12 border border-gray-100 text-center">
+            <p className="text-xl lg:text-2xl text-gray-700 mb-6">
               ¿Necesitas un servicio personalizado?
             </p>
             <button
@@ -140,7 +143,8 @@ export default function Servicios() {
                   .getElementById("contacto")
                   .scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
+              style={{ padding: "1.25rem 3rem" }}
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
               aria-label="Contactar para servicio personalizado"
             >
               Contáctanos Ahora

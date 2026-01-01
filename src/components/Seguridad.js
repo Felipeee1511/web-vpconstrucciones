@@ -37,7 +37,10 @@ export default function Seguridad() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="inline-block px-4 py-2 bg-orange-600 text-white rounded-full text-sm font-semibold mb-4">
+          <span
+            style={{ padding: "0.75rem 1.5rem" }}
+            className="inline-block bg-orange-600 text-white rounded-full text-sm font-semibold mb-4"
+          >
             Nuestra Prioridad
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
