@@ -1,31 +1,28 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-white py-16 lg:py-20">
       {/* Container principal */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-8 sm:px-12 lg:px-16 xl:px-24">
         {/* Contenedor con borde sutil */}
-        <div className="border-t-4 border-blue-600 pt-12">
+        <div className="border-t-4 border-blue-600 pt-16 lg:pt-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12">
             {/* Columna principal */}
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    className="w-7 h-7"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold">VP Construcciones</h3>
+            <div className="col-span-1 md:col-span-2 text-center md:text-left">
+              <div className="mb-4 flex justify-center md:justify-start">
+                <Image
+                  src="/assets/logovp.png"
+                  alt="VP Construcciones Logo"
+                  width={200}
+                  height={67}
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Empresa líder en servicios de construcción e ingeniería
-                industrial, comprometida con la excelencia, calidad y seguridad
-                en cada proyecto.
+                Especialistas en limpieza industrial y mantenimiento
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 justify-center md:justify-start">
                 <a
                   href="https://www.linkedin.com/company/vp-construcciones-spa/"
                   target="_blank"
