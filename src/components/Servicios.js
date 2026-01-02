@@ -80,7 +80,7 @@ export default function Servicios() {
       {/* Container principal */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header con contenedor visual */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
           <span
             style={{ padding: "0.75rem 1.5rem" }}
             className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4"
@@ -90,7 +90,7 @@ export default function Servicios() {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Nuestros Servicios
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl text-center">
             Soluciones integrales para la industria
           </p>
         </div>
@@ -103,11 +103,29 @@ export default function Servicios() {
               className="bg-white p-8 lg:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group"
             >
               {/* Icono con fondo */}
-              <div className="flex items-center justify-center w-20 h-20 bg-blue-100 rounded-2xl mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110 transform">
-                {servicio.icon}
+              <div
+                className="w-20 h-20 bg-blue-100 rounded-2xl mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110 transform mx-auto"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 1.5rem auto",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  {servicio.icon}
+                </div>
               </div>
 
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-5 min-h-15 flex items-center">
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-5 min-h-15 text-center">
                 {servicio.title}
               </h3>
 

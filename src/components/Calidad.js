@@ -135,9 +135,25 @@ export default function Calidad() {
           </div>
 
           {/* Call to action destacado */}
-          <div className="bg-linear-to-r from-blue-600 to-blue-700 rounded-2xl p-10 lg:p-14 text-white text-center shadow-2xl transform hover:scale-[1.02] transition-all duration-300">
-            <div className="max-w-3xl mx-auto space-y-6">
-              <div className="flex w-16 h-16 bg-white/20 rounded-2xl items-center justify-center mb-4">
+          <div
+            className="bg-linear-to-r from-blue-600 to-blue-700 rounded-2xl p-10 lg:p-14 text-white shadow-2xl transform hover:scale-[1.02] transition-all duration-300"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                maxWidth: "48rem",
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1.5rem",
+              }}
+            >
+              <div className="flex w-16 h-16 bg-white/20 rounded-2xl items-center justify-center">
                 <svg
                   className="w-10 h-10"
                   fill="none"
@@ -150,10 +166,28 @@ export default function Calidad() {
                   <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                 </svg>
               </div>
-              <h3 className="text-3xl lg:text-4xl font-bold leading-tight">
+              <h3
+                style={{
+                  fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
+                  fontWeight: "bold",
+                  lineHeight: "1.2",
+                  textAlign: "center",
+                  width: "100%",
+                  margin: 0,
+                }}
+              >
                 Compromiso con la Excelencia
               </h3>
-              <p className="text-xl lg:text-2xl leading-relaxed text-blue-50">
+              <p
+                style={{
+                  fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
+                  lineHeight: "1.75",
+                  textAlign: "center",
+                  width: "100%",
+                  margin: 0,
+                  color: "rgba(239, 246, 255, 1)",
+                }}
+              >
                 Cada proyecto que realizamos cumple con los más altos estándares
                 de calidad, garantizando resultados que superan las expectativas
                 de nuestros clientes.

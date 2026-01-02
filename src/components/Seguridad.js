@@ -36,7 +36,7 @@ export default function Seguridad() {
       {/* Container principal */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
           <span
             style={{ padding: "0.75rem 1.5rem" }}
             className="inline-block bg-orange-600 text-white rounded-full text-sm font-semibold mb-4"
@@ -46,7 +46,7 @@ export default function Seguridad() {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             Seguridad Laboral
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl leading-relaxed text-center">
             La seguridad de nuestro equipo y colaboradores es nuestra prioridad
             absoluta. Implementamos las mejores prácticas de la industria.
           </p>
@@ -60,7 +60,10 @@ export default function Seguridad() {
               className="bg-gray-800 p-8 lg:p-10 rounded-2xl hover:bg-gray-750 transition-all duration-300 border border-gray-700 shadow-xl hover:shadow-2xl transform hover:-translate-y-2"
             >
               {/* Icono con contenedor */}
-              <div className="flex items-center justify-center w-24 h-24 bg-gray-700 rounded-2xl mb-6 mx-auto group-hover:bg-orange-600 transition-colors duration-300 text-white">
+              <div
+                className="flex items-center justify-center w-24 h-24 bg-gray-700 rounded-2xl mb-6 text-white"
+                style={{ margin: "0 auto 1.5rem auto" }}
+              >
                 {medida.icon}
               </div>
 
@@ -102,7 +105,16 @@ export default function Seguridad() {
               Cero Accidentes es Nuestro Objetivo
             </h3>
 
-            <p className="text-xl lg:text-2xl text-center leading-relaxed text-orange-50 max-w-3xl mx-auto">
+            <p
+              style={{
+                textAlign: "center",
+                maxWidth: "48rem",
+                margin: "0 auto",
+                fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
+                lineHeight: "1.75",
+                color: "rgb(254, 243, 231)",
+              }}
+            >
               Trabajamos cada día con el compromiso de que todos nuestros
               colaboradores regresen seguros a sus hogares. La seguridad no es
               negociable.
@@ -110,7 +122,10 @@ export default function Seguridad() {
 
             {/* Estadísticas en tarjetas */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300">
+              <div
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
+                style={{ textAlign: "center" }}
+              >
                 <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
                   0
                 </div>
@@ -119,7 +134,10 @@ export default function Seguridad() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300">
+              <div
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
+                style={{ textAlign: "center" }}
+              >
                 <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
                   100%
                 </div>
@@ -128,7 +146,10 @@ export default function Seguridad() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300">
+              <div
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
+                style={{ textAlign: "center" }}
+              >
                 <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
                   24/7
                 </div>

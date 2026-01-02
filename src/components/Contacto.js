@@ -51,7 +51,16 @@ export default function Contacto() {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Contáctanos
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p
+            style={{
+              textAlign: "center",
+              maxWidth: "48rem",
+              margin: "0 auto",
+              fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
+              lineHeight: "1.5",
+            }}
+            className="text-gray-600"
+          >
             ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos
             ayudarte a alcanzar tus objetivos.
           </p>
