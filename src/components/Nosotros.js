@@ -41,7 +41,7 @@ export default function Nosotros() {
           }
           return prev + 1;
         });
-      }, 80);
+      }, 150);
 
       // Animar proyectos completados (0 a 500)
       const projectsInterval = setInterval(() => {
@@ -52,7 +52,7 @@ export default function Nosotros() {
           }
           return prev + 20;
         });
-      }, 20);
+      }, 40);
 
       // Animar satisfacción (0 a 100)
       const satisfactionInterval = setInterval(() => {
@@ -63,7 +63,7 @@ export default function Nosotros() {
           }
           return prev + 4;
         });
-      }, 30);
+      }, 60);
 
       return () => {
         clearInterval(yearsInterval);
@@ -84,7 +84,7 @@ export default function Nosotros() {
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
-              <div>
+              <div className="text-center">
                 <span
                   style={{ padding: "0.75rem 1.5rem" }}
                   className="inline-block bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4"
