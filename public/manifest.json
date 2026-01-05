@@ -1,0 +1,26 @@
+{
+  "name": "VP Construcciones - Limpieza industrial y mantenimiento",
+  "short_name": "VP Construcciones",
+  "description": "Especialistas en limpieza industrial, mantenimiento y servicios generales",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logovp.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logovp.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "es-CL"
+}

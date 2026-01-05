@@ -29,6 +29,8 @@ export default function Hero() {
           backgroundImage: "url(/assets/Imagen.PNG)",
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
+        role="img"
+        aria-label="Imagen de fondo mostrando instalaciones industriales de VP Construcciones"
       >
         <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/50 to-black/60"></div>
       </div>
@@ -49,11 +51,11 @@ export default function Hero() {
                 onClick={() =>
                   document
                     .getElementById("servicios")
-                    .scrollIntoView({ behavior: "smooth" })
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
                 style={{ padding: "1.5rem 4rem" }}
                 className="bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-400"
-                aria-label="Ver nuestros servicios"
+                aria-label="Ver nuestros servicios industriales"
               >
                 Nuestros Servicios
               </button>
@@ -61,11 +63,11 @@ export default function Hero() {
                 onClick={() =>
                   document
                     .getElementById("contacto")
-                    .scrollIntoView({ behavior: "smooth" })
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
                 style={{ padding: "1.5rem 4rem" }}
                 className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-900 text-white rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl shadow-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
-                aria-label="Contactar con nosotros"
+                aria-label="Contactar con VP Construcciones"
               >
                 Contáctanos
               </button>
@@ -79,7 +81,7 @@ export default function Hero() {
         onClick={scrollToNextSection}
         style={{ padding: "1.25rem" }}
         className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform bg-transparent border-0"
-        aria-label="Scroll hacia abajo"
+        aria-label="Desplazarse hacia la sección sobre nosotros"
         type="button"
       >
         <svg
@@ -90,6 +92,7 @@ export default function Hero() {
           strokeWidth="2.5"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>

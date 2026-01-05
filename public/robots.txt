@@ -1,0 +1,19 @@
+# robots.txt para VP Construcciones
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://vpconstrucciones.cl/sitemap.xml
+
+# Rastreadores específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear archivos sensibles (si los hay)
+Disallow: /api/
+Disallow: /*.json$

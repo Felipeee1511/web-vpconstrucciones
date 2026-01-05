@@ -76,24 +76,28 @@ export default function Servicios() {
     <section
       id="servicios"
       className="w-full min-h-screen bg-linear-to-br from-blue-50 to-gray-100 flex items-center justify-center py-20 md:py-24"
+      aria-labelledby="servicios-heading"
     >
       {/* Container principal */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header con contenedor visual */}
-        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
+        <header className="text-center mb-16 lg:mb-20 flex flex-col items-center">
           <span
             style={{ padding: "0.75rem 1.5rem" }}
             className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4"
           >
             Lo que ofrecemos
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2
+            id="servicios-heading"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+          >
             Nuestros Servicios
           </h2>
           <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl text-center">
             Soluciones integrales para la industria
           </p>
-        </div>
+        </header>
 
         {/* Grid de servicios con mejores contenedores */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

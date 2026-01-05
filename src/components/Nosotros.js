@@ -78,23 +78,27 @@ export default function Nosotros() {
       ref={sectionRef}
       id="nosotros"
       className="w-full min-h-screen flex items-center justify-center bg-linear-to-br from-gray-50 to-white py-20 md:py-24"
+      aria-labelledby="nosotros-heading"
     >
       {/* Container principal con borde sutil */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 lg:p-16">
+        <article className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
-              <div className="text-center">
+              <header className="text-center">
                 <span
                   style={{ padding: "0.75rem 1.5rem" }}
                   className="inline-block bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4"
                 >
                   Quiénes Somos
                 </span>
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                <h2
+                  id="nosotros-heading"
+                  className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                >
                   Sobre Nosotros
                 </h2>
-              </div>
+              </header>
               <div className="space-y-6">
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
                   VP Construcciones SpA es una empresa líder en servicios
@@ -150,13 +154,15 @@ export default function Nosotros() {
                 style={{
                   backgroundImage: "url(/assets/Imagen2.PNG)",
                 }}
+                role="img"
+                aria-label="Instalaciones y proyectos de VP Construcciones"
               >
                 {/* Overlay sutil para mejorar contraste */}
                 <div className="absolute inset-0 bg-black/5 rounded-2xl"></div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );
