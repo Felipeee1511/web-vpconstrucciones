@@ -75,7 +75,8 @@ export default function Servicios() {
   return (
     <section
       id="servicios"
-      className="w-full min-h-screen bg-linear-to-br from-blue-50 to-gray-100 flex items-center justify-center py-20 md:py-24"
+      className="w-full min-h-screen bg-linear-to-br from-blue-50 to-gray-100 flex items-center justify-center"
+      style={{ paddingTop: "5rem", paddingBottom: "10rem" }}
       aria-labelledby="servicios-heading"
     >
       {/* Container principal */}
@@ -155,7 +156,10 @@ export default function Servicios() {
 
         {/* Call to action */}
         <div className="mt-24 lg:mt-32">
-          <div className="w-full bg-white rounded-2xl shadow-lg p-10 lg:p-12 border border-gray-100 text-center">
+          <div
+            className="w-full bg-white rounded-2xl shadow-lg p-10 lg:p-12 border border-gray-100 text-center"
+            style={{ marginTop: "1.5rem" }}
+          >
             <p className="text-xl lg:text-2xl text-gray-700 mb-6">
               ¿Necesitas un servicio personalizado?
             </p>

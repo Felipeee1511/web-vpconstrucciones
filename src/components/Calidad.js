@@ -29,9 +29,9 @@ export default function Calidad() {
       className="w-full min-h-screen bg-white flex items-center justify-center py-20 md:py-24"
     >
       {/* Container principal */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header con badge */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
           <span
             style={{ padding: "0.75rem 1.5rem" }}
             className="inline-block bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4"
@@ -41,7 +41,7 @@ export default function Calidad() {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Calidad y Certificaciones
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl">
             Nuestro compromiso con la calidad está respaldado por
             certificaciones internacionales y un riguroso sistema de gestión.
           </p>
