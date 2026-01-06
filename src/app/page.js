@@ -4,7 +4,7 @@ import Nosotros from "@/components/Nosotros";
 import Servicios from "@/components/Servicios";
 import Calidad from "@/components/Calidad";
 import Seguridad from "@/components/Seguridad";
-import FAQ from "@/components/FAQ";
+import Clientes from "@/components/Clientes";
 import Contacto from "@/components/Contacto";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -99,6 +99,12 @@ const breadcrumbData = {
     {
       "@type": "ListItem",
       position: 3,
+      name: "Preguntas Frecuentes",
+      item: "https://vpconstrucciones.cl/faq",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
       name: "Contacto",
       item: "https://vpconstrucciones.cl/#contacto",
     },
@@ -125,7 +131,7 @@ export default function Home() {
         <Servicios />
         <Calidad />
         <Seguridad />
-        <FAQ />
+        <Clientes />
         <Contacto />
         <Footer />
         <ScrollToTop />

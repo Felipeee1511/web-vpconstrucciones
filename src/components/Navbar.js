@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
@@ -13,27 +16,30 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Detectar sección activa
-      const sections = [
-        "inicio",
-        "nosotros",
-        "servicios",
-        "calidad",
-        "seguridad",
-        "contacto",
-      ];
-      const scrollPosition = window.scrollY + 100; // Offset para activación temprana
+      // Detectar sección activa solo en la página principal
+      if (isHomePage) {
+        const sections = [
+          "inicio",
+          "nosotros",
+          "servicios",
+          "calidad",
+          "seguridad",
+          "clientes",
+          "contacto",
+        ];
+        const scrollPosition = window.scrollY + 100; // Offset para activación temprana
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(sectionId);
-            break;
+        for (const sectionId of sections) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (
+              scrollPosition >= offsetTop &&
+              scrollPosition < offsetTop + offsetHeight
+            ) {
+              setActiveSection(sectionId);
+              break;
+            }
           }
         }
       }
@@ -42,14 +48,19 @@ export default function Navbar() {
     handleScroll(); // Llamar al cargar
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+  const handleNavigation = (sectionId) => {
+    setIsMobileMenuOpen(false);
+
+    if (isHomePage) {
+      // Si estamos en la página principal, hacer scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    // Si no estamos en la página principal, el Link se encargará de la navegación
   };
 
   return (
@@ -64,10 +75,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo con contenedor visual */}
           <div className="shrink-0">
-            <button
-              onClick={() => scrollToSection("inicio")}
+            <Link
+              href="/"
               style={{ padding: "1rem 1.5rem" }}
-              className={`transition-all duration-300 rounded-xl ${
+              className={`block transition-all duration-300 rounded-xl ${
                 isScrolled ? "hover:bg-blue-50" : "hover:bg-white/10"
               }`}
               aria-label="Ir a inicio"
@@ -80,26 +91,28 @@ export default function Navbar() {
                 className="h-12 w-auto object-contain"
                 priority
               />
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Menu con mejor diseño */}
           <div className="hidden md:flex items-center gap-2 lg:gap-3">
             {[
-              "Inicio",
-              "Nosotros",
-              "Servicios",
-              "Calidad",
-              "Seguridad",
-              "Contacto",
+              { label: "Inicio", id: "inicio" },
+              { label: "Nosotros", id: "nosotros" },
+              { label: "Servicios", id: "servicios" },
+              { label: "Calidad", id: "calidad" },
+              { label: "Seguridad", id: "seguridad" },
+              { label: "Clientes", id: "clientes" },
+              { label: "Contacto", id: "contacto" },
             ].map((item) => {
-              const itemId = item.toLowerCase();
-              const isActive = activeSection === itemId;
+              const isActive = isHomePage && activeSection === item.id;
+              const href = isHomePage ? `#${item.id}` : `/#${item.id}`;
 
               return (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(itemId)}
+                <Link
+                  key={item.id}
+                  href={href}
+                  onClick={() => handleNavigation(item.id)}
                   style={{ padding: "0.875rem 1.5rem" }}
                   className={`transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap rounded-xl ${
                     isActive
@@ -110,11 +123,11 @@ export default function Navbar() {
                       ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
                       : "text-white hover:bg-white/20"
                   }`}
-                  aria-label={`Ir a ${item}`}
+                  aria-label={`Ir a ${item.label}`}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </Link>
               );
             })}
           </div>
@@ -156,31 +169,33 @@ export default function Navbar() {
         <div className="md:hidden bg-white shadow-2xl border-t border-gray-200 animate-fade-in">
           <div className="px-4 pt-3 pb-4 space-y-2 max-w-7xl mx-auto">
             {[
-              "Inicio",
-              "Nosotros",
-              "Servicios",
-              "Calidad",
-              "Seguridad",
-              "Contacto",
+              { label: "Inicio", id: "inicio" },
+              { label: "Nosotros", id: "nosotros" },
+              { label: "Servicios", id: "servicios" },
+              { label: "Calidad", id: "calidad" },
+              { label: "Seguridad", id: "seguridad" },
+              { label: "Clientes", id: "clientes" },
+              { label: "Contacto", id: "contacto" },
             ].map((item) => {
-              const itemId = item.toLowerCase();
-              const isActive = activeSection === itemId;
+              const isActive = isHomePage && activeSection === item.id;
+              const href = isHomePage ? `#${item.id}` : `/#${item.id}`;
 
               return (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(itemId)}
+                <Link
+                  key={item.id}
+                  href={href}
+                  onClick={() => handleNavigation(item.id)}
                   style={{ padding: "1.25rem 1.5rem" }}
                   className={`block w-full text-left text-base font-medium rounded-xl transition-all duration-200 ${
                     isActive
                       ? "text-blue-600 bg-blue-50 font-semibold"
                       : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
                   }`}
-                  aria-label={`Ir a ${item}`}
+                  aria-label={`Ir a ${item.label}`}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </Link>
               );
             })}
           </div>

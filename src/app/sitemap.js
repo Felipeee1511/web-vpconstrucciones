@@ -33,6 +33,18 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/#clientes`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/#contacto`,
       lastModified: new Date(),
       changeFrequency: "monthly",

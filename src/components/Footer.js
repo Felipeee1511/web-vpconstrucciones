@@ -74,6 +74,14 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
+                    href="/faq"
+                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
+                  >
+                    Preguntas Frecuentes
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="#contacto"
                     className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
                   >

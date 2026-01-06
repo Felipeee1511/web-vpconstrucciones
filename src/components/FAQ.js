@@ -105,7 +105,10 @@ export default function FAQ() {
       >
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="text-center mb-16">
-            <span className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4 px-6 py-3">
+            <span
+              className="inline-block bg-blue-600 text-white rounded-full text-sm font-semibold mb-4"
+              style={{ padding: "0.75rem 1.5rem" }}
+            >
               Preguntas Frecuentes
             </span>
             <h2
