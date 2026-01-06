@@ -202,42 +202,60 @@ export default function Clientes() {
               >
                 {/* Carrusel 3D */}
                 <div className="relative w-full h-full flex items-center justify-center">
-                  {clientes.map((cliente, index) => (
-                    <div
-                      key={cliente.id}
-                      className="absolute"
-                      style={getCardStyle(index)}
-                    >
+                  {clientes.map((cliente, index) => {
+                    const isActive = index === currentIndex;
+
+                    return (
                       <div
-                        className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-64 h-64 md:w-80 md:h-80 flex items-center justify-center border-4 border-white hover:border-blue-400 transition-all duration-300 cursor-pointer group"
-                        onClick={() => setCurrentIndex(index)}
+                        key={cliente.id}
+                        className="absolute"
+                        style={getCardStyle(index)}
                       >
-                        {/* Logo del cliente */}
-                        {cliente.logo && cliente.alt ? (
-                          <img
-                            src={cliente.logo}
-                            alt={cliente.alt}
-                            className="w-full h-full object-contain p-4 filter grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-105"
-                            loading="lazy"
-                          />
-                        ) : (
-                          // Placeholder para clientes sin logo
-                          <div className="text-center">
-                            <div
-                              className={`${cliente.color} w-32 h-32 md:w-40 md:h-40 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                            >
-                              <span className="text-white font-bold text-2xl md:text-3xl">
-                                LOGO
-                              </span>
+                        <div
+                          className={`bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-64 h-64 md:w-80 md:h-80 flex items-center justify-center border-4 transition-all duration-300 cursor-pointer group ${
+                            isActive
+                              ? "border-blue-400 scale-105"
+                              : "border-white hover:border-blue-400"
+                          }`}
+                          onClick={() => setCurrentIndex(index)}
+                        >
+                          {/* Logo del cliente */}
+                          {cliente.logo && cliente.alt ? (
+                            <img
+                              src={cliente.logo}
+                              alt={cliente.alt}
+                              className={`w-full h-full object-contain p-4 transition-all duration-300 ${
+                                isActive
+                                  ? "filter-none scale-105"
+                                  : "filter grayscale hover:grayscale-0 hover:scale-105"
+                              }`}
+                              loading="lazy"
+                            />
+                          ) : (
+                            // Placeholder para clientes sin logo
+                            <div className="text-center">
+                              <div
+                                className={`${
+                                  cliente.color
+                                } w-32 h-32 md:w-40 md:h-40 mx-auto rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 ${
+                                  isActive
+                                    ? "scale-110"
+                                    : "group-hover:scale-110"
+                                }`}
+                              >
+                                <span className="text-white font-bold text-2xl md:text-3xl">
+                                  LOGO
+                                </span>
+                              </div>
+                              <p className="text-gray-800 font-semibold text-lg md:text-xl">
+                                {cliente.nombre}
+                              </p>
                             </div>
-                            <p className="text-gray-800 font-semibold text-lg md:text-xl">
-                              {cliente.nombre}
-                            </p>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
