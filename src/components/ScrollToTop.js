@@ -35,7 +35,7 @@ export default function ScrollToTop() {
         <button
           onClick={scrollToTop}
           style={{ padding: "1.5rem" }}
-          className="fixed bottom-8 right-8 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-400 animate-fade-in"
+          className="fixed bottom-8 right-8 md:bottom-40 lg:bottom-8 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-400 animate-fade-in"
           aria-label="Volver al inicio"
           type="button"
         >
