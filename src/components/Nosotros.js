@@ -7,7 +7,16 @@ export default function Nosotros() {
   const [years, setYears] = useState(0);
   const [projects, setProjects] = useState(0);
   const [satisfaction, setSatisfaction] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef(null);
+
+  const images = [
+    { src: "/assets/Imagen2.PNG", alt: "Instalaciones VP Construcciones" },
+    { src: "/assets/nosotros1.jpeg", alt: "Proyecto VP Construcciones 1" },
+    { src: "/assets/nosotros2.jpeg", alt: "Proyecto VP Construcciones 2" },
+    { src: "/assets/nosotros3.jpeg", alt: "Proyecto VP Construcciones 3" },
+    { src: "/assets/nosotros4.jpeg", alt: "Proyecto VP Construcciones 4" },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,6 +38,27 @@ export default function Nosotros() {
       }
     };
   }, [isVisible]);
+
+  // Auto-play del slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 5000); // Cambia cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
 
   useEffect(() => {
     if (isVisible) {
@@ -147,18 +177,89 @@ export default function Nosotros() {
               </div>
             </div>
 
-            {/* Imagen con borde y sombra */}
-            <div className="relative h-96 lg:h-full min-h-125">
-              <div
-                className="absolute inset-0 bg-cover bg-center rounded-2xl shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-300"
-                style={{
-                  backgroundImage: "url(/assets/Imagen2.PNG)",
-                }}
-                role="img"
-                aria-label="Instalaciones y proyectos de VP Construcciones"
+            {/* Slider de imágenes */}
+            <div className="relative h-96 lg:h-full min-h-125 overflow-hidden rounded-2xl shadow-2xl border-4 border-white group">
+              {/* Imágenes del slider */}
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div
+                    className="w-full h-full bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${image.src})`,
+                      backgroundPosition: "center",
+                    }}
+                    role="img"
+                    aria-label={image.alt}
+                  >
+                    {/* Overlay sutil para mejorar contraste */}
+                    <div className="absolute inset-0 bg-black/5"></div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Botón anterior */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Imagen anterior"
               >
-                {/* Overlay sutil para mejorar contraste */}
-                <div className="absolute inset-0 bg-black/5 rounded-2xl"></div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Botón siguiente */}
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Imagen siguiente"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+
+              {/* Indicadores de puntos */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "bg-white w-8"
+                        : "bg-white/50 hover:bg-white/75"
+                    }`}
+                    aria-label={`Ir a imagen ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
