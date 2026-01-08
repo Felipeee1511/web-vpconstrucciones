@@ -20,7 +20,7 @@ const structuredData = {
   logo: "https://vpconstrucciones.cl/assets/logovp.png",
   image: "https://vpconstrucciones.cl/assets/logovp.png",
   telephone: "+56-9-XXXX-XXXX", // Agregar tu teléfono real
-  email: "contacto@vpconstrucciones.cl", // Agregar tu email real
+  email: "contacto@vpconstrucciones.cl",
   address: {
     "@type": "PostalAddress",
     addressCountry: "CL",
