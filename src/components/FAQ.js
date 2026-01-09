@@ -170,16 +170,13 @@ export default function FAQ() {
             <p className="text-gray-600 mb-4">
               ¿No encontraste lo que buscabas?
             </p>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("contacto")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            <a
+              href="/#contacto"
+              style={{ padding: "0.75rem 2rem" }}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Contáctanos
-            </button>
+            </a>
           </div>
         </div>
       </section>

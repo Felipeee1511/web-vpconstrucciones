@@ -14,7 +14,7 @@ export default function Contacto() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', 'security-error', null
   const [turnstileToken, setTurnstileToken] = useState(null);
   const turnstileRef = useRef(null);
 
@@ -25,7 +25,7 @@ export default function Contacto() {
 
     // Verificar si hay token de Turnstile cuando está habilitado
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
-      setSubmitStatus("error");
+      setSubmitStatus("security-error");
       setIsSubmitting(false);
       console.error("Por favor, completa la verificación de seguridad");
       return;
@@ -146,8 +146,11 @@ export default function Contacto() {
                   </div>
                   Información de Contacto
                 </h3>
-                <div className="mt-12 flex flex-col" style={{ gap: "2rem" }}>
-                  <div className="flex items-start p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors duration-300 group">
+                <div
+                  style={{ marginTop: "6rem", gap: "1.5rem" }}
+                  className="flex flex-col"
+                >
+                  <div className="flex items-start p-4 bg-white rounded-xl hover:shadow-md transition-all duration-300 group border border-gray-100">
                     <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
                       <svg
                         className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300"
@@ -170,7 +173,7 @@ export default function Contacto() {
                     </div>
                   </div>
 
-                  <div className="flex items-start p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors duration-300 group">
+                  <div className="flex items-start p-4 bg-white rounded-xl hover:shadow-md transition-all duration-300 group border border-gray-100">
                     <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
                       <svg
                         className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300"
@@ -192,7 +195,7 @@ export default function Contacto() {
                     </div>
                   </div>
 
-                  <div className="flex items-start p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors duration-300 group">
+                  <div className="flex items-start p-4 bg-white rounded-xl hover:shadow-md transition-all duration-300 group border border-gray-100">
                     <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
                       <svg
                         className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300"
@@ -216,7 +219,7 @@ export default function Contacto() {
                     </div>
                   </div>
 
-                  <div className="flex items-start p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors duration-300 group">
+                  <div className="flex items-start p-4 bg-white rounded-xl hover:shadow-md transition-all duration-300 group border border-gray-100">
                     <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-blue-600 transition-colors duration-300">
                       <svg
                         className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300"
@@ -404,6 +407,32 @@ export default function Contacto() {
                     </h4>
                     <p className="text-green-700 text-sm mt-1">
                       Nos pondremos en contacto contigo pronto.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Mensaje de error de verificación de seguridad */}
+              {submitStatus === "security-error" && (
+                <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl flex items-start gap-3">
+                  <svg
+                    className="w-6 h-6 text-red-600 shrink-0 mt-0.5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-red-900">
+                      Error al enviar el mensaje
+                    </h4>
+                    <p className="text-red-700 text-sm mt-1">
+                      Por favor, completa la verificación de seguridad antes de
+                      enviar el formulario.
                     </p>
                   </div>
                 </div>

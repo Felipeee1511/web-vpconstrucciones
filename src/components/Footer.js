@@ -50,7 +50,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="#inicio"
+                    href="/#inicio"
                     className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
                   >
                     Inicio
@@ -58,7 +58,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#nosotros"
+                    href="/#nosotros"
                     className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
                   >
                     Nosotros
@@ -66,7 +66,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#servicios"
+                    href="/#servicios"
                     className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
                   >
                     Servicios
@@ -82,7 +82,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#contacto"
+                    href="/#contacto"
                     className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
                   >
                     Contacto
