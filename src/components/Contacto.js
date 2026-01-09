@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { CheckIcon } from "./icons";
 
 export default function Contacto() {
@@ -12,18 +13,74 @@ export default function Contacto() {
     mensaje: "",
   });
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [turnstileToken, setTurnstileToken] = useState(null);
+  const turnstileRef = useRef(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData);
-    alert("¡Gracias por contactarnos! Nos pondremos en contacto pronto.");
-    setFormData({
-      nombre: "",
-      email: "",
-      telefono: "",
-      empresa: "",
-      mensaje: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // Verificar si hay token de Turnstile cuando está habilitado
+    if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      console.error("Por favor, completa la verificación de seguridad");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          nombre: "",
+          email: "",
+          telefono: "",
+          empresa: "",
+          mensaje: "",
+        });
+        setTurnstileToken(null);
+        // Resetear Turnstile
+        if (turnstileRef.current) {
+          turnstileRef.current.reset();
+        }
+        // Limpiar el mensaje de éxito después de 5 segundos
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus("error");
+        console.error("Error:", data.error);
+        // Resetear Turnstile en caso de error
+        if (turnstileRef.current) {
+          turnstileRef.current.reset();
+        }
+        setTurnstileToken(null);
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error("Error al enviar el formulario:", error);
+      // Resetear Turnstile en caso de error
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
+      setTurnstileToken(null);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -107,11 +164,9 @@ export default function Contacto() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">
-                        Dirección
+                        Ubicación
                       </h4>
-                      <p className="text-gray-600">
-                        Av. Principal 123, Santiago, Chile
-                      </p>
+                      <p className="text-gray-600">Coronel, Chile</p>
                     </div>
                   </div>
 
@@ -133,7 +188,7 @@ export default function Contacto() {
                       <h4 className="font-semibold text-gray-900 mb-1">
                         Teléfono
                       </h4>
-                      <p className="text-gray-600">+56 2 1234 5678</p>
+                      <p className="text-gray-600">+56 9 7935 7965</p>
                     </div>
                   </div>
 
@@ -328,12 +383,124 @@ export default function Contacto() {
                   placeholder="Cuéntanos sobre tu proyecto..."
                 ></textarea>
               </div>
+
+              {/* Mensaje de éxito */}
+              {submitStatus === "success" && (
+                <div className="p-4 bg-green-50 border-2 border-green-200 rounded-xl flex items-start gap-3">
+                  <svg
+                    className="w-6 h-6 text-green-600 shrink-0 mt-0.5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-green-900">
+                      ¡Mensaje enviado exitosamente!
+                    </h4>
+                    <p className="text-green-700 text-sm mt-1">
+                      Nos pondremos en contacto contigo pronto.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Mensaje de error */}
+              {submitStatus === "error" && (
+                <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl flex items-start gap-3">
+                  <svg
+                    className="w-6 h-6 text-red-600 shrink-0 mt-0.5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-red-900">
+                      Error al enviar el mensaje
+                    </h4>
+                    <p className="text-red-700 text-sm mt-1">
+                      Por favor, intenta nuevamente o contáctanos directamente.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Cloudflare Turnstile */}
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                <div className="flex justify-center">
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken(null)}
+                    onExpire={() => setTurnstileToken(null)}
+                    options={{
+                      theme: "light",
+                      size: "normal",
+                    }}
+                  />
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 style={{ padding: "1.5rem 2rem" }}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-400"
+                className={`w-full font-semibold rounded-xl transition-all duration-300 transform shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400 flex items-center justify-center gap-2 ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] hover:shadow-xl"
+                } text-white`}
               >
-                Enviar Mensaje
+                {isSubmitting ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    Enviar Mensaje
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </>
+                )}
               </button>
             </form>
           </div>
