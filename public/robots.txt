@@ -3,17 +3,22 @@
 
 User-agent: *
 Allow: /
+Allow: /faq
 
 # Sitemap
-Sitemap: https://vpconstrucciones.cl/sitemap.xml
+Sitemap: https://www.vpconstrucciones.cl/sitemap.xml
 
 # Rastreadores específicos
 User-agent: Googlebot
 Allow: /
+Allow: /faq
 
 User-agent: Bingbot
 Allow: /
+Allow: /faq
 
-# Bloquear archivos sensibles (si los hay)
+# Bloquear archivos sensibles
 Disallow: /api/
 Disallow: /*.json$
+Disallow: /*?*utm_source=*
+Disallow: /*?*utm_medium=*

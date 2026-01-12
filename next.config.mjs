@@ -37,6 +37,24 @@ const nextConfig = {
     ];
   },
 
+  // Redirecciones específicas para evitar problemas de indexación
+  async redirects() {
+    return [
+      // Redirigir no-www a www (todas las rutas)
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "vpconstrucciones.cl",
+          },
+        ],
+        destination: "https://www.vpconstrucciones.cl/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   // Configuración de trailing slash
   trailingSlash: false,
 

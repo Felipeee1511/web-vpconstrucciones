@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 // Metadata optimizada para SEO
 export const metadata = {
-  metadataBase: new URL("https://vpconstrucciones.cl"), // Cambia por tu dominio real
+  metadataBase: new URL("https://www.vpconstrucciones.cl"),
   title: {
     default:
       "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
@@ -49,7 +49,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    url: "https://vpconstrucciones.cl",
+    url: "https://www.vpconstrucciones.cl",
     title:
       "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
     description:
@@ -88,7 +88,7 @@ export const metadata = {
     // bing: "tu-codigo-bing",
   },
   alternates: {
-    canonical: "https://vpconstrucciones.cl",
+    canonical: "https://www.vpconstrucciones.cl",
   },
   category: "Servicios Industriales",
 };

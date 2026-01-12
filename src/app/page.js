@@ -16,9 +16,9 @@ const structuredData = {
   name: "VP Construcciones SpA",
   description:
     "Especialistas en limpieza industrial, mantenimiento preventivo y correctivo, gestión de residuos, tratamiento de aguas y servicios generales para la industria.",
-  url: "https://vpconstrucciones.cl",
-  logo: "https://vpconstrucciones.cl/assets/logovp.png",
-  image: "https://vpconstrucciones.cl/assets/logovp.png",
+  url: "https://www.vpconstrucciones.cl",
+  logo: "https://www.vpconstrucciones.cl/assets/logovp.png",
+  image: "https://www.vpconstrucciones.cl/assets/logovp.png",
   telephone: "+56-9-XXXX-XXXX", // Agregar tu teléfono real
   email: "contacto@vpconstrucciones.cl",
   address: {
@@ -88,13 +88,13 @@ const breadcrumbData = {
       "@type": "ListItem",
       position: 1,
       name: "Inicio",
-      item: "https://vpconstrucciones.cl",
+      item: "https://www.vpconstrucciones.cl",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Servicios",
-      item: "https://vpconstrucciones.cl/#servicios",
+      item: "https://www.vpconstrucciones.cl/#servicios",
     },
     {
       "@type": "ListItem",

@@ -7,10 +7,22 @@ export const metadata = {
   title: "Preguntas Frecuentes | VP Construcciones",
   description:
     "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de limpieza industrial, mantenimiento, gestión de residuos y más.",
+  alternates: {
+    canonical: "https://www.vpconstrucciones.cl/faq",
+  },
   openGraph: {
     title: "Preguntas Frecuentes | VP Construcciones",
     description:
       "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios industriales.",
+    url: "https://www.vpconstrucciones.cl/faq",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 
