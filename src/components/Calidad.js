@@ -1,199 +1,156 @@
+import Reveal from "@/components/ui/Reveal";
+
+const CHECK_CIRCLE = (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="#dbeafe" />
+    <path d="M16 9l-5 5-3-3" stroke="#1d4ed8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const PRINCIPIOS = [
+  "Cumplimiento de estándares internacionales",
+  "Mejora continua de procesos",
+  "Capacitación permanente del personal",
+  "Control de calidad en todas las etapas",
+  "Auditorías internas y externas",
+  "Compromiso con la excelencia",
+];
+
 export default function Calidad() {
-  const certificaciones = [
-    {
-      title: "ISO 9001",
-      description: "Sistema de Gestión de Calidad",
-    },
-    {
-      title: "ISO 14001",
-      description: "Sistema de Gestión Ambiental",
-    },
-    {
-      title: "ISO 45001",
-      description: "Sistema de Gestión de Seguridad y Salud",
-    },
-  ];
-
-  const principios = [
-    "Cumplimiento de estándares internacionales",
-    "Mejora continua de procesos",
-    "Capacitación permanente del personal",
-    "Control de calidad en todas las etapas",
-    "Auditorías internas y externas",
-    "Compromiso con la excelencia",
-  ];
-
   return (
     <section
       id="calidad"
-      className="w-full min-h-screen bg-white flex items-center justify-center py-20 md:py-24"
+      className="w-full py-24 bg-[#f8fafc]"
+      aria-label="Calidad y Certificaciones"
     >
-      {/* Container principal */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Header con badge */}
-        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
-          <span
-            style={{ padding: "0.75rem 1.5rem" }}
-            className="inline-block bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4"
-          >
+      <div className="max-w-[1180px] mx-auto px-6">
+        <Reveal className="text-center mb-[18px]">
+          <span className="inline-block font-bold text-[0.78rem] tracking-[0.12em] uppercase mb-[18px] px-4 py-[7px] rounded-full text-[#1d4ed8] bg-[#eef4ff]">
             Nuestro Compromiso
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2
+            className="font-extrabold tracking-[-0.02em] leading-[1.15] text-[#0f172a]"
+            style={{ fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)" }}
+          >
             Calidad y Certificaciones
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl">
-            Nuestro compromiso con la calidad está respaldado por
-            certificaciones internacionales y un riguroso sistema de gestión.
+          <p className="mt-[14px] mx-auto text-[#475569] text-[1.08rem] max-w-[640px]">
+            Nuestro compromiso con la calidad está respaldado por certificaciones
+            internacionales y un riguroso sistema de gestión.
           </p>
+        </Reveal>
+
+        {/* Sellos ISO — 3 cols → 2 @980px → 1 @440px */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px] mt-[18px]">
+          {[
+            {
+              id: "g9001",
+              colors: ["#1d4ed8", "#3b82f6"],
+              textColor: "#1d4ed8",
+              code: "9001",
+              year: "2015",
+              title: "ISO 9001:2015",
+              desc: "Sistema de Gestión de Calidad",
+              aria: "Certificación ISO 9001:2015",
+            },
+            {
+              id: "g14001",
+              colors: ["#15803d", "#22c55e"],
+              textColor: "#15803d",
+              code: "14001",
+              year: "2015",
+              title: "ISO 14001:2015",
+              desc: "Sistema de Gestión Ambiental",
+              aria: "Certificación ISO 14001:2015",
+            },
+            {
+              id: "g45001",
+              colors: ["#b45309", "#f59e0b"],
+              textColor: "#b45309",
+              code: "45001",
+              year: "2018",
+              title: "ISO 45001:2018",
+              desc: "Seguridad y Salud Ocupacional",
+              aria: "Certificación ISO 45001:2018",
+            },
+          ].map((cert) => (
+            <Reveal key={cert.id}>
+              <div className="rounded-[16px] bg-white border border-[#e2e8f0] p-[30px] text-center transition-all duration-200 hover:-translate-y-[5px] hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)] hover:border-[#3b82f6]">
+                <svg
+                  viewBox="0 0 200 200"
+                  role="img"
+                  aria-label={cert.aria}
+                  className="mx-auto mb-4 block w-[124px] h-[124px]"
+                  style={{ filter: "drop-shadow(0 8px 18px rgba(15,23,42,0.18))" }}
+                >
+                  <defs>
+                    <linearGradient id={cert.id} x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stopColor={cert.colors[0]} />
+                      <stop offset="1" stopColor={cert.colors[1]} />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="94" fill={`url(#${cert.id})`} />
+                  <circle cx="100" cy="100" r="94" fill="none" stroke="#fff" strokeOpacity=".22" strokeWidth="3" />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#fff" strokeOpacity=".55" strokeWidth="2" strokeDasharray="2 5" />
+                  <circle cx="100" cy="100" r="70" fill="#fff" />
+                  <path d="M100 42l3.8 7.7 8.5 1.2-6.2 6 1.5 8.5-7.6-4-7.6 4 1.5-8.5-6.2-6 8.5-1.2z" fill={cert.colors[0]} />
+                  <text x="100" y="103" textAnchor="middle" fontFamily="Inter,Arial,sans-serif" fontSize="15" fontWeight="700" fill={cert.textColor} letterSpacing="4">ISO</text>
+                  <text x="100" y="135" textAnchor="middle" fontFamily="Inter,Arial,sans-serif" fontSize="33" fontWeight="900" fill="#0f172a">{cert.code}</text>
+                  <text x="100" y="156" textAnchor="middle" fontFamily="Inter,Arial,sans-serif" fontSize="12.5" fontWeight="700" fill={cert.textColor} letterSpacing="2">{cert.year}</text>
+                </svg>
+                <h4 className="font-extrabold mb-[6px] text-[1.15rem] text-[#0f172a]">
+                  {cert.title}
+                </h4>
+                <p className="text-[0.9rem] text-[#475569]">{cert.desc}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
-        {/* Contenedor principal con borde */}
-        <div className="bg-linear-to-br from-gray-50 to-white rounded-3xl shadow-xl border border-gray-200 p-8 md:p-12 lg:p-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
-            {/* Certificaciones */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    className="w-7 h-7 text-white"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                  </svg>
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                  Certificaciones
-                </h3>
-              </div>
-              <div className="space-y-5">
-                {certificaciones.map((cert, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-6 lg:p-8 rounded-2xl border-l-4 border-blue-600 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-x-2"
-                  >
-                    <h4 className="text-xl lg:text-2xl font-bold text-blue-600 mb-3">
-                      {cert.title}
-                    </h4>
-                    <p className="text-gray-700 text-base lg:text-lg leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Principios + compromiso — 2 cols → 1 @980px */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[50px] items-start mt-[56px]">
+          <Reveal>
+            <h3 className="font-extrabold mb-[18px] text-[1.35rem] text-[#0f172a]">
+              Principios de Calidad
+            </h3>
+            <ul className="grid gap-3 list-none">
+              {PRINCIPIOS.map((p) => (
+                <li
+                  key={p}
+                  className="flex gap-3 items-center font-semibold rounded-[12px] border border-[#e2e8f0] px-[18px] py-[14px] text-[0.95rem] bg-[#f8fafc]"
+                >
+                  {CHECK_CIRCLE}
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
-            {/* Principios */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    className="w-7 h-7 text-white"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                  Principios de Calidad
-                </h3>
-              </div>
-              <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-md">
-                <div className="space-y-5">
-                  {principios.map((principio, index) => (
-                    <div key={index} className="flex items-start group">
-                      <div className="shrink-0 w-7 h-7 bg-green-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-green-500 transition-colors duration-300">
-                        <svg
-                          className="w-5 h-5 text-green-600 group-hover:text-white transition-colors duration-300"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                      <span className="text-gray-700 text-base lg:text-lg leading-relaxed">
-                        {principio}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to action destacado */}
-          <div
-            className="bg-linear-to-r from-blue-600 to-blue-700 rounded-2xl p-10 lg:p-14 text-white shadow-2xl transform hover:scale-[1.02] transition-all duration-300"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Reveal delay={100}>
             <div
+              className="rounded-[24px] p-10 text-white relative overflow-hidden shadow-[0_24px_60px_rgba(15,23,42,0.16)]"
               style={{
-                maxWidth: "48rem",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "1.5rem",
+                background: "linear-gradient(160deg, #0b2545, #1d4ed8)",
               }}
             >
-              <div className="flex w-16 h-16 bg-white/20 rounded-2xl items-center justify-center">
-                <svg
-                  className="w-10 h-10"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                </svg>
-              </div>
-              <h3
-                style={{
-                  fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
-                  fontWeight: "bold",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                  width: "100%",
-                  margin: 0,
-                }}
-              >
+              <div
+                className="absolute -right-10 -top-10 w-[180px] h-[180px] rounded-full pointer-events-none bg-[rgba(245,158,11,0.18)]"
+                aria-hidden="true"
+              />
+              <h3 className="text-[1.35rem] font-extrabold mb-[18px] relative">
                 Compromiso con la Excelencia
               </h3>
-              <p
-                style={{
-                  fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
-                  lineHeight: "1.75",
-                  textAlign: "center",
-                  width: "100%",
-                  margin: 0,
-                  color: "rgba(239, 246, 255, 1)",
-                }}
-              >
-                Cada proyecto que realizamos cumple con los más altos estándares
-                de calidad, garantizando resultados que superan las expectativas
-                de nuestros clientes.
+              <p className="relative text-white/90">
+                Cada proyecto que realizamos cumple con los más altos estándares de
+                calidad, garantizando resultados que superan las expectativas de
+                nuestros clientes.
+              </p>
+              <p className="relative mt-[14px] text-white/90">
+                La calidad no es un objetivo puntual, sino una cultura presente en
+                todo nuestro equipo y en cada etapa de la operación.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

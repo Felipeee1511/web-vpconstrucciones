@@ -1,25 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono-code",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
-// Metadata optimizada para SEO
 export const metadata = {
   metadataBase: new URL("https://www.vpconstrucciones.cl"),
   title: {
-    default:
-      "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
+    default: "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
     template: "%s | VP Construcciones",
   },
   description:
@@ -41,17 +41,12 @@ export const metadata = {
   authors: [{ name: "VP Construcciones SpA" }],
   creator: "VP Construcciones SpA",
   publisher: "VP Construcciones SpA",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "es_CL",
     url: "https://www.vpconstrucciones.cl",
-    title:
-      "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
+    title: "VP Construcciones | Limpieza Industrial y Mantenimiento Especializado",
     description:
       "Especialistas en limpieza industrial, mantenimiento preventivo y correctivo, gestión de residuos, tratamiento de aguas y servicios generales para la industria.",
     siteName: "VP Construcciones",
@@ -82,11 +77,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // google: "tu-codigo-google-search-console",
-    // yandex: "tu-codigo-yandex",
-    // bing: "tu-codigo-bing",
-  },
   alternates: {
     canonical: "https://www.vpconstrucciones.cl",
   },
@@ -94,7 +84,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Google Tag Manager ID - Reemplaza 'GTM-XXXXXXX' con tu ID real
   const GTM_ID = "GTM-MX3H7W8B";
 
   return (
@@ -102,11 +91,8 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/assets/logovp.png" />
-        <meta name="theme-color" content="#2563eb" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
-        />
+        <meta name="theme-color" content="#1d4ed8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
         {/* Google Tag Manager */}
         <Script
@@ -118,25 +104,21 @@ export default function RootLayout({ children }) {
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-MX3H7W8B');
+              })(window,document,'script','dataLayer','${GTM_ID}');
             `,
           }}
         />
-        {/* End Google Tag Manager */}
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MX3H7W8B"
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
+          />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
 
         {children}
       </body>

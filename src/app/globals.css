@@ -1,249 +1,271 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ── Design Tokens: Corporativo claro — azul/blanco/naranjo ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Paleta azul corporativa */
+  --color-blue-900: #0b2545;
+  --color-blue-800: #102a56;
+  --color-blue-700: #1d4ed8;
+  --color-blue-600: #2563eb;
+  --color-blue-500: #3b82f6;
+  --color-blue-50:  #eef4ff;
+
+  /* Acento naranjo */
+  --color-accent:        #f3781f;
+  --color-accent-600:    #d9620f;
+
+  /* Semánticos heredados por componentes */
+  --color-brand:         #f3781f;
+  --color-brand-strong:  #d9620f;
+  --color-brand-soft:    #fff4ec;
+  --color-brand-glow:    rgba(243,120,31,0.15);
+
+  /* Texto */
+  --color-ink:       #0f172a;
+  --color-slate:     #475569;
+  --color-slate-light: #64748b;
+
+  /* Fondos */
+  --color-bg:        #ffffff;
+  --color-bg-soft:   #f8fafc;
+  --color-line:      #e2e8f0;
+
+  /* Alias para backward-compat con componentes que usan --color-* */
+  --color-surface:   #ffffff;
+  --color-elevated:  #f8fafc;
+  --color-base:      #ffffff;
+  --color-light:     #f8fafc;
+  --color-light-muted: #eef4ff;
+
+  /* Texto claro/oscuro alias */
+  --color-text-dark:       #0f172a;
+  --color-text-muted:      #475569;
+  --color-text-light:      #0f172a;
+  --color-text-light-muted:#475569;
+
+  /* Bordes */
+  --color-border-dark:  #e2e8f0;
+  --color-border-light: #e2e8f0;
+
+  /* Sombras (como custom props, no tokens Tailwind) */
+  --shadow-sm:  0 1px 3px rgba(15,23,42,0.08);
+  --shadow:     0 10px 30px rgba(15,23,42,0.1);
+  --shadow-lg:  0 24px 60px rgba(15,23,42,0.16);
+
+  /* Radio */
+  --radius: 16px;
+
+  /* Semántica */
+  --color-success:     #16a34a;
+  --color-destructive: #dc2626;
+  --color-ring:        #2563eb;
+  --color-steel:       #64748b;
+  --color-steel-light: #94a3b8;
+  --color-steel-dark:  #334155;
+
+  /* ── Escala tipográfica ── */
+  --text-label:  0.6875rem;
+  --text-kicker: 0.8125rem;
+  --text-body:   1rem;
+  --text-lead:   clamp(1.0625rem, 1rem + 0.4vw, 1.2rem);
+  --text-h3:     clamp(1.1rem, 1.0rem + 0.7vw, 1.35rem);
+  --text-h2:     clamp(1.9rem, 3.6vw, 2.75rem);
+  --text-h1:     clamp(2.4rem, 5.6vw, 4.3rem);
+
+  /* ── Fuentes ── */
+  --font-sans:   var(--font-inter);
+  --font-mono:   var(--font-mono-code);
 }
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* ── Reset en @layer para no pisar utilidades Tailwind ── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
   width: 100%;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  scroll-behavior: smooth;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.65;
   width: 100%;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-/* Separación de secciones */
-section {
-  position: relative;
-}
-
-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0, 0, 0, 0.1),
-    transparent
-  );
-}
-
-/* Animaciones personalizadas */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
-
-/* Animación suave para transiciones */
-* {
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Mejora de accesibilidad - focus visible */
-*:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-  border-radius: 0.375rem;
-}
-
-/* Mejora de contraste en textos */
-::selection {
-  background-color: #3b82f6;
-  color: white;
-}
-
-/* Smooth scroll con offset para navbar fijo */
-html {
-  scroll-padding-top: 80px;
-}
-
-/* Animación de entrada para elementos */
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Mejora de legibilidad */
-p,
-li,
-span {
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sombras suaves para contenedores */
-.shadow-custom {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+section {
+  position: relative;
 }
 
-.shadow-custom-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Hover effects mejorados */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Focus visible ── */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+/* ── Transitions ── */
+a,
+button,
+input,
+textarea,
+select,
+[role="button"] {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 180ms;
+}
+
+/* ── Cursor ── */
 button,
 a {
   cursor: pointer;
 }
 
-/* Loading states */
-.loading {
-  pointer-events: none;
-  opacity: 0.6;
+/* ── Animaciones keyframes ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse2 {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50%       { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%       { transform: translate(-50%, 8px); }
+}
+
+@keyframes scrollx {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Utilidades de animación ── */
+.animate-spin-slow   { animation: spin 26s linear infinite; }
+.animate-floaty      { animation: floaty 4.5s ease-in-out infinite; }
+.animate-pulse2      { animation: pulse2 5s ease-in-out infinite; }
+.animate-bob         { animation: bob 2s infinite; }
+.animate-scrollx     { animation: scrollx 28s linear infinite; }
+.animate-fade-up     { animation: fade-up 0.6s ease-out both; }
+.animate-fade-in     { animation: fade-in 0.5s ease-out both; }
+.animate-marquee     { animation: marquee 28s linear infinite; }
+
+/* ── prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Scroll reveal ── */
+:root {
+  --reveal-duration: 700ms;
+  --reveal-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── Text rendering ── */
+p, li, span, h1, h2, h3, h4 {
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Contacto form inputs ── */
+.contacto-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 0.96rem;
+  background: #f8fafc;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  outline: none;
+  color: #0f172a;
+  display: block;
+}
+
+.contacto-input:focus {
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 4px #eef4ff;
 }

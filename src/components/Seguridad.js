@@ -1,164 +1,125 @@
-import {
-  SeguridadPersonaIcon,
-  SeguridadCandadoIcon,
-  EscudoCheckIcon,
-} from "./icons";
+import Reveal from "@/components/ui/Reveal";
+import CountUp from "@/components/ui/CountUp";
+
+const CHECK_SVG = (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const SHIELD_SVG = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#fbbf24" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M9 12l2 2 4-4" stroke="#fbbf24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const GLOBE_SVG = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" stroke="#fbbf24" strokeWidth="1.8" />
+    <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" stroke="#fbbf24" strokeWidth="1.8" />
+  </svg>
+);
 
 export default function Seguridad() {
-  const medidas = [
-    {
-      icon: <SeguridadPersonaIcon />,
-      title: "Compromiso con la Seguridad",
-      description: [
-        "Record de cero accidentes en 8 años",
-        "Protocolos estrictos de seguridad",
-        "Capacitación continua para todo el personal",
-        "Evaluaciones periódicas de riesgos",
-      ],
-    },
-    {
-      icon: <SeguridadCandadoIcon />,
-      title: "Gestión Ambiental",
-      description: [
-        "Certificación ISO 14001",
-        "Manejo responsable de residuos",
-        "Practicas sostenibles",
-        "Cumplimiento normativo",
-      ],
-    },
-  ];
-
   return (
     <section
       id="seguridad"
-      className="w-full min-h-screen bg-gray-900 text-white flex items-center justify-center py-20 md:py-24"
+      className="w-full py-24 text-white"
+      style={{ background: "linear-gradient(135deg, #0b2545, #102a56)" }}
+      aria-label="Seguridad Laboral"
     >
-      {/* Container principal */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 lg:mb-20 flex flex-col items-center">
-          <span
-            style={{ padding: "0.75rem 1.5rem" }}
-            className="inline-block bg-orange-600 text-white rounded-full text-sm font-semibold mb-4"
-          >
+      <div className="max-w-[1180px] mx-auto px-6">
+        <Reveal className="text-center mb-[50px]">
+          <span className="inline-block font-bold text-[0.78rem] tracking-[0.12em] uppercase mb-[18px] px-4 py-[7px] rounded-full bg-[rgba(245,158,11,0.18)] text-[#f3781f]">
             Nuestra Prioridad
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <h2
+            className="font-extrabold tracking-[-0.02em] leading-[1.15]"
+            style={{ fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)" }}
+          >
             Seguridad Laboral
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl leading-relaxed text-center">
+          <p className="mt-[14px] mx-auto text-white/80 text-[1.08rem] max-w-[640px]">
             La seguridad de nuestro equipo y colaboradores es nuestra prioridad
             absoluta. Implementamos las mejores prácticas de la industria.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Tarjetas de medidas con borde */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-16 lg:mb-20">
-          {medidas.map((medida, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 p-8 lg:p-10 rounded-2xl hover:bg-gray-750 transition-all duration-300 border border-gray-700 shadow-xl hover:shadow-2xl transform hover:-translate-y-2"
-            >
-              {/* Icono con contenedor */}
-              <div
-                className="flex items-center justify-center w-24 h-24 bg-gray-700 rounded-2xl mb-6 text-white"
-                style={{ margin: "0 auto 1.5rem auto" }}
-              >
-                {medida.icon}
-              </div>
-
-              <h3 className="text-xl lg:text-2xl font-bold mb-6 text-center">
-                {medida.title}
-              </h3>
-
-              {Array.isArray(medida.description) ? (
-                <ul className="text-gray-300 text-base lg:text-lg space-y-4">
-                  {medida.description.map((item, idx) => (
-                    <li key={idx} className="flex items-start group/item">
-                      <span className="text-orange-500 mr-3 mt-1 shrink-0 font-bold text-xl group-hover/item:scale-125 transition-transform duration-200">
-                        •
+        {/* 2 cards glass — 2 cols → 1 @980px */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] mb-[30px]">
+          {[
+            {
+              icon: SHIELD_SVG,
+              title: "Compromiso con la Seguridad",
+              items: [
+                "Récord de cero accidentes graves en 8 años",
+                "Protocolos estrictos de seguridad",
+                "Capacitación continua para todo el personal",
+                "Evaluaciones periódicas de riesgos",
+              ],
+            },
+            {
+              icon: GLOBE_SVG,
+              title: "Gestión Ambiental",
+              items: [
+                "Certificación ISO 14001",
+                "Manejo responsable de residuos",
+                "Prácticas sostenibles",
+                "Cumplimiento normativo vigente",
+              ],
+            },
+          ].map((card, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <div className="rounded-[16px] p-8 bg-white/[0.06] border border-white/[0.12]">
+                <h3 className="text-[1.25rem] font-extrabold mb-[18px] flex items-center gap-[11px]">
+                  {card.icon}
+                  {card.title}
+                </h3>
+                <ul className="grid gap-3 list-none">
+                  {card.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-[11px] items-start text-[0.96rem] text-[#f3781f]"
+                    >
+                      <span className="text-[#f3781f] flex-shrink-0 mt-[3px]">
+                        {CHECK_SVG}
                       </span>
-                      <span className="leading-relaxed">{item}</span>
+                      <span className="text-white/90">{item}</span>
                     </li>
                   ))}
                 </ul>
-              ) : (
-                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                  {medida.description}
-                </p>
-              )}
-            </div>
+              </div>
+            </Reveal>
           ))}
         </div>
 
-        {/* Sección destacada de cero accidentes con contenedor visual */}
-        <div className="bg-linear-to-r from-orange-600 to-red-600 rounded-3xl p-10 lg:p-14 shadow-2xl border-4 border-orange-400/20">
-          <div className="space-y-8">
-            {/* Icono principal */}
-            <div className="flex justify-center">
-              <div className="w-24 h-24 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm text-white">
-                <EscudoCheckIcon />
-              </div>
-            </div>
-
-            <h3 className="text-3xl lg:text-4xl font-bold text-center leading-tight">
-              Cero Accidentes es Nuestro Objetivo
-            </h3>
-
-            <p
-              style={{
-                textAlign: "center",
-                maxWidth: "48rem",
-                margin: "0 auto",
-                fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
-                lineHeight: "1.75",
-                color: "rgb(254, 243, 231)",
-              }}
-            >
-              Trabajamos cada día con el compromiso de que todos nuestros
-              colaboradores regresen seguros a sus hogares. La seguridad no es
-              negociable.
-            </p>
-
-            {/* Estadísticas en tarjetas */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12">
-              <div
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
-                style={{ textAlign: "center" }}
-              >
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-                  0
+        {/* Stats — 3 cols → 2 @760px */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { target: 0,   suffix: "",  label: "Accidentes graves" },
+            { target: 100, suffix: "%", label: "Personal capacitado" },
+            { static: "24/7",           label: "Monitoreo de seguridad" },
+          ].map((stat, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <div className="text-center rounded-[16px] py-7 px-4 bg-white/[0.06] border border-white/[0.12]">
+                <div className="font-black leading-none text-[2.6rem] text-[#f3781f]">
+                  {stat.static !== undefined ? (
+                    stat.static
+                  ) : (
+                    <CountUp
+                      target={stat.target}
+                      suffix={stat.suffix}
+                      className="font-black leading-none text-[2.6rem] text-[#f3781f]"
+                    />
+                  )}
                 </div>
-                <div className="text-base md:text-xl lg:text-2xl text-orange-50 font-medium">
-                  Accidentes Graves
+                <div className="font-semibold mt-2 text-[0.85rem] text-white/75">
+                  {stat.label}
                 </div>
               </div>
-
-              <div
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
-                style={{ textAlign: "center" }}
-              >
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-                  100%
-                </div>
-                <div className="text-base md:text-xl lg:text-2xl text-orange-50 font-medium">
-                  Personal Capacitado
-                </div>
-              </div>
-
-              <div
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300"
-                style={{ textAlign: "center" }}
-              >
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-                  24/7
-                </div>
-                <div className="text-base md:text-xl lg:text-2xl text-orange-50 font-medium">
-                  Monitoreo de Seguridad
-                </div>
-              </div>
-            </div>
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

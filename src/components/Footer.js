@@ -1,160 +1,131 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const QUICK_LINKS = [
+  { label: "Inicio",    href: "/#inicio" },
+  { label: "Nosotros",  href: "/#nosotros" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Galería",   href: "/#galeria" },
+  { label: "Proceso",   href: "/#proceso" },
+  { label: "Contacto",  href: "/#contacto" },
+];
+
+const CONTACT_INFO = [
+  { text: "Coronel, Región del Biobío, Chile", href: null },
+  { text: "+56 9 7935 7965",                   href: "tel:+56979357965" },
+  { text: "contacto@vpconstrucciones.cl",       href: "mailto:contacto@vpconstrucciones.cl" },
+  { text: "Lun – Vie · 8:00 – 18:00",          href: null },
+];
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-900 text-white py-16 lg:py-20">
-      {/* Container principal */}
-      <div className="w-full mx-auto px-8 sm:px-12 lg:px-16 xl:px-24">
-        {/* Contenedor con borde sutil */}
-        <div className="border-t-4 border-blue-600 pt-16 lg:pt-20">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12">
-            {/* Columna principal */}
-            <div className="col-span-1 md:col-span-2 text-center md:text-left">
-              <div className="mb-4 flex justify-center md:justify-start">
-                <Image
-                  src="/assets/logovp.png"
-                  alt="VP Construcciones Logo"
-                  width={200}
-                  height={67}
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                Especialistas en limpieza industrial y mantenimiento
-              </p>
-              <div className="flex space-x-4 justify-center md:justify-start">
-                <a
-                  href="https://www.linkedin.com/company/vp-construcciones-spa/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
-                  aria-label="LinkedIn"
-                >
-                  <svg
-                    className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
-              </div>
+    <footer
+      className="w-full bg-[#0b2545] text-white/75 pt-[64px] pb-[28px]"
+      aria-label="Pie de página"
+    >
+      <div className="max-w-[1180px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 mb-11">
+          {/* Columna 1: Marca */}
+          <div>
+            <div className="inline-block mb-4 rounded-[12px] bg-white px-[18px] py-3">
+              <Image
+                src="/assets/logovp.png"
+                alt="VP Construcciones"
+                width={170}
+                height={46}
+                className="h-[46px] w-auto block"
+                style={{ width: "auto" }}
+              />
             </div>
-
-            {/* Enlaces Rápidos */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <div className="w-1 h-6 bg-blue-600 rounded"></div>
-                Enlaces Rápidos
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="/#inicio"
-                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
-                  >
-                    Inicio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#nosotros"
-                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
-                  >
-                    Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#servicios"
-                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
-                  >
-                    Servicios
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/faq"
-                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
-                  >
-                    Preguntas Frecuentes
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#contacto"
-                    className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-200 block"
-                  >
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contacto */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <div className="w-1 h-6 bg-blue-600 rounded"></div>
-                Contacto
-              </h4>
-              <ul className="space-y-4 text-gray-400">
-                <li className="flex items-start gap-3 group">
-                  <svg
-                    className="w-5 h-5 text-blue-600 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                  <span className="leading-relaxed">
-                    {/* <br /> */}
-                    Coronel, Chile
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 group">
-                  <svg
-                    className="w-5 h-5 text-blue-600 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                  <span>+56 9 7935 7965</span>
-                </li>
-                <li className="flex items-start gap-3 group">
-                  <svg
-                    className="w-5 h-5 text-blue-600 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                  <span>contacto@vpconstrucciones.cl</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400">
-              &copy; {new Date().getFullYear()} VP Construcciones. Todos los
-              derechos reservados.
+            <p className="max-w-[300px] text-[0.92rem]">
+              Especialistas en limpieza industrial y mantenimiento, con
+              certificaciones ISO 9001, 14001 y 45001.
             </p>
+
+            {/* Redes sociales */}
+            <div className="flex gap-[10px] mt-[18px]">
+              <a
+                href="https://www.linkedin.com/company/vp-construcciones-spa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn de VP Construcciones"
+                className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z" />
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/56979357965"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp de VP Construcciones"
+                className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3 2.8 2.8 0 00-.9 2.1c0 1.3.9 2.5 1 2.6a10 10 0 003.9 3.4c1.4.6 1.9.6 2.6.5.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
+                </svg>
+              </a>
+              <a
+                href="mailto:contacto@vpconstrucciones.cl"
+                aria-label="Email de VP Construcciones"
+                className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" strokeWidth="1.7" />
+                  <path d="M22 7l-10 6L2 7" stroke="#fff" strokeWidth="1.7" />
+                </svg>
+              </a>
+            </div>
           </div>
+
+          {/* Columna 2: Enlaces rápidos */}
+          <div>
+            <h5 className="font-extrabold mb-[18px] uppercase tracking-[0.06em] text-white text-[0.95rem]">
+              Enlaces Rápidos
+            </h5>
+            <ul className="grid gap-[11px] list-none">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block text-[0.92rem] text-white/[0.72] hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Columna 3: Contacto */}
+          <div>
+            <h5 className="font-extrabold mb-[18px] uppercase tracking-[0.06em] text-white text-[0.95rem]">
+              Contacto
+            </h5>
+            <ul className="grid gap-[11px] list-none text-[0.92rem]">
+              {CONTACT_INFO.map((item, i) => (
+                <li key={i}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="block text-white/[0.72] hover:text-white transition-colors duration-200"
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    <span>{item.text}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Línea inferior */}
+        <div className="text-center pt-6 border-t border-white/[0.12] text-[0.85rem] text-white/[0.55]">
+          &copy; {new Date().getFullYear()} VP Construcciones SpA. Todos los derechos
+          reservados.
         </div>
       </div>
     </footer>

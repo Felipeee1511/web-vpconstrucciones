@@ -44,3 +44,6 @@ next-env.d.ts
 vendor/
 .idea/
 .vscode/
+
+# originales de imágenes pre-WebP (respaldo local, no desplegar)
+originals-backup/
