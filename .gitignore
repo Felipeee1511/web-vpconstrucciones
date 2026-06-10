@@ -47,3 +47,5 @@ vendor/
 
 # originales de imágenes pre-WebP (respaldo local, no desplegar)
 originals-backup/
+# Local Pi runtime state
+.atl/

@@ -52,10 +52,10 @@ export const metadata = {
     siteName: "VP Construcciones",
     images: [
       {
-        url: "/assets/logovp.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "VP Construcciones - Servicios Industriales",
+        alt: "VP Construcciones - Limpieza Industrial y Mantenimiento Especializado en Chile",
       },
     ],
   },
@@ -64,7 +64,7 @@ export const metadata = {
     title: "VP Construcciones | Limpieza Industrial y Mantenimiento",
     description:
       "Especialistas en servicios industriales: limpieza, mantenimiento, gestión de residuos y más.",
-    images: ["/assets/logovp.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
