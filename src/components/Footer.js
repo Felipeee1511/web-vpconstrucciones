@@ -2,19 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const QUICK_LINKS = [
-  { label: "Inicio",    href: "/#inicio" },
-  { label: "Nosotros",  href: "/#nosotros" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Nosotros", href: "/#nosotros" },
   { label: "Servicios", href: "/#servicios" },
-  { label: "Galería",   href: "/#galeria" },
-  { label: "Proceso",   href: "/#proceso" },
-  { label: "Contacto",  href: "/#contacto" },
+  { label: "Galería", href: "/#galeria" },
+  { label: "Proceso", href: "/#proceso" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 const CONTACT_INFO = [
   { text: "Coronel, Región del Biobío, Chile", href: null },
-  { text: "+56 9 7935 7965",                   href: "tel:+56979357965" },
-  { text: "contacto@vpconstrucciones.cl",       href: "mailto:contacto@vpconstrucciones.cl" },
-  { text: "Lun – Vie · 8:00 – 18:00",          href: null },
+  // { text: "+56 9 7935 7965",                   href: "tel:+56979357965" },
+  {
+    text: "contacto@vpconstrucciones.cl",
+    href: "mailto:contacto@vpconstrucciones.cl",
+  },
+  { text: "Lun – Vie · 8:00 – 18:00", href: null },
 ];
 
 export default function Footer() {
@@ -51,7 +54,13 @@ export default function Footer() {
                 aria-label="LinkedIn de VP Construcciones"
                 className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
                   <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z" />
                 </svg>
               </a>
@@ -62,7 +71,13 @@ export default function Footer() {
                 aria-label="WhatsApp de VP Construcciones"
                 className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
                   <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3 2.8 2.8 0 00-.9 2.1c0 1.3.9 2.5 1 2.6a10 10 0 003.9 3.4c1.4.6 1.9.6 2.6.5.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
                 </svg>
               </a>
@@ -71,8 +86,22 @@ export default function Footer() {
                 aria-label="Email de VP Construcciones"
                 className="w-10 h-10 rounded-[10px] grid place-items-center text-white transition-all duration-200 hover:-translate-y-[3px] bg-white/[0.08] hover:bg-[#2563eb]"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" strokeWidth="1.7" />
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2"
+                    y="4"
+                    width="20"
+                    height="16"
+                    rx="2"
+                    stroke="#fff"
+                    strokeWidth="1.7"
+                  />
                   <path d="M22 7l-10 6L2 7" stroke="#fff" strokeWidth="1.7" />
                 </svg>
               </a>
@@ -124,8 +153,8 @@ export default function Footer() {
 
         {/* Línea inferior */}
         <div className="text-center pt-6 border-t border-white/[0.12] text-[0.85rem] text-white/[0.55]">
-          &copy; {new Date().getFullYear()} VP Construcciones SpA. Todos los derechos
-          reservados.
+          &copy; {new Date().getFullYear()} VP Construcciones SpA. Todos los
+          derechos reservados.
         </div>
       </div>
     </footer>

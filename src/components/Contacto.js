@@ -7,8 +7,18 @@ import Reveal from "@/components/ui/Reveal";
 const INFO_ITEMS = [
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z" stroke="currentColor" strokeWidth="1.8" />
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
         <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="1.8" />
       </svg>
     ),
@@ -17,20 +27,34 @@ const INFO_ITEMS = [
     href: "https://maps.google.com/?q=Coronel,Chile",
     target: "_blank",
   },
+  // {
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  //       <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z" stroke="currentColor" strokeWidth="1.7" />
+  //     </svg>
+  //   ),
+  //   label: "Teléfono",
+  //   value: "+56 9 7935 7965",
+  //   href: "tel:+56979357965",
+  // },
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z" stroke="currentColor" strokeWidth="1.7" />
-      </svg>
-    ),
-    label: "Teléfono",
-    value: "+56 9 7935 7965",
-    href: "tel:+56979357965",
-  },
-  {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="4"
+          width="20"
+          height="16"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
         <path d="M22 7l-10 6L2 7" stroke="currentColor" strokeWidth="1.7" />
       </svg>
     ),
@@ -40,9 +64,20 @@ const INFO_ITEMS = [
   },
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
-        <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <path
+          d="M12 7v5l3 2"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinecap="round"
+        />
       </svg>
     ),
     label: "Horario",
@@ -59,15 +94,31 @@ const WHY_ITEMS = [
 ];
 
 const CHECK_CIRCLE = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
     <circle cx="12" cy="12" r="10" fill="#dbeafe" />
-    <path d="M16 9l-5 5-3-3" stroke="#1d4ed8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M16 9l-5 5-3-3"
+      stroke="#1d4ed8"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
-    nombre: "", email: "", telefono: "", empresa: "", mensaje: "",
+    nombre: "",
+    email: "",
+    telefono: "",
+    empresa: "",
+    mensaje: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -93,7 +144,13 @@ export default function Contacto() {
       });
       if (response.ok) {
         setSubmitStatus("success");
-        setFormData({ nombre: "", email: "", telefono: "", empresa: "", mensaje: "" });
+        setFormData({
+          nombre: "",
+          email: "",
+          telefono: "",
+          empresa: "",
+          mensaje: "",
+        });
         setTurnstileToken(null);
         if (turnstileRef.current) turnstileRef.current.reset();
         setTimeout(() => setSubmitStatus(null), 5000);
@@ -133,8 +190,8 @@ export default function Contacto() {
             Contáctanos
           </h2>
           <p className="mt-[14px] mx-auto text-[#475569] text-[1.08rem] max-w-[640px]">
-            ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos ayudarte a
-            alcanzar tus objetivos.
+            ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos
+            ayudarte a alcanzar tus objetivos.
           </p>
         </Reveal>
 
@@ -163,7 +220,8 @@ export default function Contacto() {
                     </div>
                   </>
                 );
-                const baseClass = "flex gap-4 items-start bg-[#f8fafc] border border-[#e2e8f0] rounded-[14px] px-5 py-[18px] transition-all duration-200";
+                const baseClass =
+                  "flex gap-4 items-start bg-[#f8fafc] border border-[#e2e8f0] rounded-[14px] px-5 py-[18px] transition-all duration-200";
 
                 return item.href ? (
                   <a
@@ -213,8 +271,14 @@ export default function Contacto() {
                 {/* Fila 1: Nombre + Empresa */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-[18px]">
                   <div>
-                    <label htmlFor="nombre" className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]">
-                      Nombre completo <span aria-hidden="true" className="text-[#f3781f]">*</span>
+                    <label
+                      htmlFor="nombre"
+                      className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]"
+                    >
+                      Nombre completo{" "}
+                      <span aria-hidden="true" className="text-[#f3781f]">
+                        *
+                      </span>
                     </label>
                     <input
                       type="text"
@@ -228,7 +292,12 @@ export default function Contacto() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="empresa" className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]">Empresa</label>
+                    <label
+                      htmlFor="empresa"
+                      className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]"
+                    >
+                      Empresa
+                    </label>
                     <input
                       type="text"
                       id="empresa"
@@ -244,8 +313,14 @@ export default function Contacto() {
                 {/* Fila 2: Email + Teléfono */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-[18px]">
                   <div>
-                    <label htmlFor="email" className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]">
-                      Email <span aria-hidden="true" className="text-[#f3781f]">*</span>
+                    <label
+                      htmlFor="email"
+                      className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]"
+                    >
+                      Email{" "}
+                      <span aria-hidden="true" className="text-[#f3781f]">
+                        *
+                      </span>
                     </label>
                     <input
                       type="email"
@@ -259,8 +334,14 @@ export default function Contacto() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="telefono" className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]">
-                      Teléfono <span aria-hidden="true" className="text-[#f3781f]">*</span>
+                    <label
+                      htmlFor="telefono"
+                      className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]"
+                    >
+                      Teléfono{" "}
+                      <span aria-hidden="true" className="text-[#f3781f]">
+                        *
+                      </span>
                     </label>
                     <input
                       type="tel"
@@ -277,8 +358,14 @@ export default function Contacto() {
 
                 {/* Mensaje */}
                 <div className="mb-[18px]">
-                  <label htmlFor="mensaje" className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]">
-                    Mensaje <span aria-hidden="true" className="text-[#f3781f]">*</span>
+                  <label
+                    htmlFor="mensaje"
+                    className="block text-[0.85rem] font-semibold mb-[7px] text-[#0f172a]"
+                  >
+                    Mensaje{" "}
+                    <span aria-hidden="true" className="text-[#f3781f]">
+                      *
+                    </span>
                   </label>
                   <textarea
                     id="mensaje"
@@ -294,20 +381,57 @@ export default function Contacto() {
 
                 {/* Status messages */}
                 {submitStatus === "success" && (
-                  <div role="status" aria-live="polite" className="mb-4 p-4 rounded-[11px] flex items-start gap-3 bg-[#f0fdf4] border border-[#16a34a]">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#16a34a]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <div
+                    role="status"
+                    aria-live="polite"
+                    className="mb-4 p-4 rounded-[11px] flex items-start gap-3 bg-[#f0fdf4] border border-[#16a34a]"
+                  >
+                    <svg
+                      className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#16a34a]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     <div>
-                      <p className="font-semibold text-sm text-[#15803d]">¡Mensaje enviado exitosamente!</p>
-                      <p className="text-xs mt-0.5 text-[#16a34a]">Nos pondremos en contacto contigo pronto.</p>
+                      <p className="font-semibold text-sm text-[#15803d]">
+                        ¡Mensaje enviado exitosamente!
+                      </p>
+                      <p className="text-xs mt-0.5 text-[#16a34a]">
+                        Nos pondremos en contacto contigo pronto.
+                      </p>
                     </div>
                   </div>
                 )}
-                {(submitStatus === "error" || submitStatus === "security-error") && (
-                  <div role="alert" aria-live="assertive" className="mb-4 p-4 rounded-[11px] flex items-start gap-3 bg-[#fef2f2] border border-[#dc2626]">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#dc2626]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                {(submitStatus === "error" ||
+                  submitStatus === "security-error") && (
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="mb-4 p-4 rounded-[11px] flex items-start gap-3 bg-[#fef2f2] border border-[#dc2626]"
+                  >
+                    <svg
+                      className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#dc2626]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     <div>
                       <p className="font-semibold text-sm text-[#b91c1c]">
-                        {submitStatus === "security-error" ? "Error de verificación de seguridad" : "Error al enviar el mensaje"}
+                        {submitStatus === "security-error"
+                          ? "Error de verificación de seguridad"
+                          : "Error al enviar el mensaje"}
                       </p>
                       <p className="text-xs mt-0.5 text-[#dc2626]">
                         {submitStatus === "security-error"
@@ -344,9 +468,26 @@ export default function Contacto() {
                 >
                   {isSubmitting ? (
                     <>
-                      <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      <svg
+                        className="animate-spin h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
                       </svg>
                       Enviando...
                     </>
@@ -356,7 +497,8 @@ export default function Contacto() {
                 </button>
 
                 <p className="text-center mt-[14px] text-[0.82rem] text-[#64748b]">
-                  Te responderemos a la brevedad. También puedes escribirnos directamente por WhatsApp.
+                  Te responderemos a la brevedad. También puedes escribirnos
+                  directamente por WhatsApp.
                 </p>
               </form>
             </div>
